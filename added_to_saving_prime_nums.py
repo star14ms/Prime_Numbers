@@ -1,4 +1,4 @@
-number = 10000 # 소수 검사를 시도할 횟수
+number = 10000 # 소수 검사를 시도할 횟수(수정가능)
 
 with open('prime_nums.txt', 'r') as f:
   list = f.read().split(',')
