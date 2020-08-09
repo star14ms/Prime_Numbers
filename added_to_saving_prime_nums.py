@@ -1,6 +1,6 @@
 number = 1000 # 소수 검사를 시도할 횟수
 
-with open('소수목록.txt', 'r') as f:
+with open('prime_nums.txt', 'r') as f:
   list = f.read().split(',')
 
 if list[0] == '': # txt 파일이 비어있으면
@@ -12,7 +12,7 @@ prime_nums = list[:-1] # '마지막 검사 수' 없애기
 for n in range(len(prime_nums)):
   prime_nums[n] = int(prime_nums[n])
 
-with open('소수목록.txt', 'a') as f:
+with open('prime_nums.txt', 'a') as f:
   for a in range(number):
     count += 1 
     n = count
