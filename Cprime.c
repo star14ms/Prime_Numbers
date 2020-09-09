@@ -6,27 +6,27 @@
 int main()
 {
 	printf("--------------------------------------------\n");
-    printf("³»°¡ °è¼Ó Ã£´Â°Ô ÀÖ°Åµç...¹ºÁö ¾Ë¾Æ?...¼Ò¼ö\n\n");
-    printf("³ª°¡±â: break\n");
+    printf("ë‚´ê°€ ê³„ì† ì°¾ëŠ”ê²Œ ìˆê±°ë“ ...ë­”ì§€ ì•Œì•„?...ì†Œìˆ˜\n\n");
+    printf("ë‚˜ê°€ê¸°: break\n");
 	while(1) {
     int i, n, mult, MAX_TARGET;
     printf("--------------------------------------------\n");
-    printf("n ¾ÈÀÇ ¼Ò¼ö, n = ");
+    printf("n ì•ˆì˜ ì†Œìˆ˜, n = ");
     scanf("%d", &MAX_TARGET);
     if (MAX_TARGET == 0) {
     	break;
 	} else if (MAX_TARGET == 1) {
-		printf("\n1Àº ¼Ò¼ö°¡ ¾Æ´Ô\n");
+		printf("\n1ì€ ì†Œìˆ˜ê°€ ì•„ë‹˜\n");
 	    continue; 
 	}
 	
     int start = clock();
     
-    // (int Å©±â * ÀÔ·Â¹ŞÀº Å©±â)¸¸Å­ µ¿Àû ¸Ş¸ğ¸® ÇÒ´ç
+    // (int í¬ê¸° * ì…ë ¥ë°›ì€ í¬ê¸°)ë§Œí¼ ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹
     int *isPrimeNumber = malloc(sizeof(int) * MAX_TARGET); 
     
     
-	//1¿Ü¿¡´Â ¸ğµÎ ¼Ò¼ö¶ó°í °¡Á¤  
+	//1ì™¸ì—ëŠ” ëª¨ë‘ ì†Œìˆ˜ë¼ê³  ê°€ì •  
 	isPrimeNumber[1] = 0;
 	for (i = 2; i < MAX_TARGET+1; i++)
 	{
@@ -34,16 +34,16 @@ int main()
 	}
  
  
-	//¿¡¶óÅä½ºÅ×³×½ºÀÇ Ã¼
+	//ì—ë¼í† ìŠ¤í…Œë„¤ìŠ¤ì˜ ì²´
 	int num_primes = 0;
 	for (n = 2; n <= floor(sqrt(MAX_TARGET)); n++)
 	{
-		//nÀÌ ¼Ò¼ö°¡ ¾Æ´Ñ °æ¿ì continue
+		//nì´ ì†Œìˆ˜ê°€ ì•„ë‹Œ ê²½ìš° continue
 		if (!isPrimeNumber[n]) 
 		{
 			continue;
 		}
-		//¼Ò¼öÀÎ nÀÇ ¹è¼öµé ¸ğµÎ Á¦°Å
+		//ì†Œìˆ˜ì¸ nì˜ ë°°ìˆ˜ë“¤ ëª¨ë‘ ì œê±°
 		for (mult = 2; n * mult <= MAX_TARGET; mult++) {
 			isPrimeNumber[n*mult] = 0;
 		}
@@ -52,26 +52,26 @@ int main()
     int elapsed = clock();
     
     
-	//¿¡¶óÅä½ºÅ×³×½ºÀÇ Ã¼¸¦ ÀÌ¿ëÇÏ¿© ¼Ò¼öµé¸¸ ³²Àº ¹è¿­ Ãâ·Â
+	//ì—ë¼í† ìŠ¤í…Œë„¤ìŠ¤ì˜ ì²´ë¥¼ ì´ìš©í•˜ì—¬ ì†Œìˆ˜ë“¤ë§Œ ë‚¨ì€ ë°°ì—´ ì¶œë ¥
 	printf("\n");
 	int start2 = clock();
 	for (i = 1; i < MAX_TARGET+1; i++)
 	{
-		//¼Ò¼öÀÎ ¼ıÀÚµé ¸ğµÎ Ãâ·Â
+		//ì†Œìˆ˜ì¸ ìˆ«ìë“¤ ëª¨ë‘ ì¶œë ¥
 		if (isPrimeNumber[i])
 		{
 			++num_primes;
-			fprintf(stdout, "%d ", i);               // Ãâ·Â¹æ¹ı 1 
-//			char s[8]; // ÀÚ¸´¼ö                     // Ãâ·Â¹æ¹ı 2 
-//			fprintf(stdout, "%s ", itoa(i, s, 10));  // Ãâ·Â¹æ¹ı 2		
+			fprintf(stdout, "%d\n", i);               // ì¶œë ¥ë°©ë²• 1 
+//			char s[8]; // ìë¦¿ìˆ˜                     // ì¶œë ¥ë°©ë²• 2 
+//			fprintf(stdout, "%s ", itoa(i, s, 10));  // ì¶œë ¥ë°©ë²• 2		
 		}
 	}
 	int elapsed2 = clock();
 	
 	
-    printf("\n\nÃ£´Â ½Ã°£ : %.3f sec\n", (double)(elapsed - start)/CLOCKS_PER_SEC);
-    printf("Ãâ·Â ½Ã°£ : %.3f sec\n", (double)(elapsed2 - start2)/CLOCKS_PER_SEC);
-    printf("¼Ò¼ö ºñÀ² : %d / %d (%.2f %%)\n", num_primes, MAX_TARGET, (float)num_primes/(float)MAX_TARGET*100);
+    printf("\n\nì°¾ëŠ” ì‹œê°„ : %.3f sec\n", (double)(elapsed - start)/CLOCKS_PER_SEC);
+    printf("ì¶œë ¥ ì‹œê°„ : %.3f sec\n", (double)(elapsed2 - start2)/CLOCKS_PER_SEC);
+    printf("ì†Œìˆ˜ ë¹„ìœ¨ : %d / %d (%.2f %%)\n", num_primes, MAX_TARGET, (float)num_primes/(float)MAX_TARGET*100);
     }
 	return 0;
 }
