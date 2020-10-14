@@ -9,4 +9,4 @@
 ### Pyprime.exe : 범위 안의 소수를 찾아 출력하는 프로그램 (python 기반)
 ### txtSave_Pyprime.exe : 범위 안의 소수를 찾아 txt파일로 저장하는 프로그램 (python 기반)
 
-# COMMENT WELCOME!
+# COMMENTS WELCOME!
